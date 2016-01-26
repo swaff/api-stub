@@ -28,7 +28,7 @@ A response_code and response_file can be added which will then be reflected in t
 
 If an entry is added in local storage like:
 
-```JSON
+```
 {
     '/user/test': [{
         response_file: 'not-test',
