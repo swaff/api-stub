@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "title": "Practical VIM",
+      "id": "1"
+    },
+    {
+      "title": "Elixir Programming",
+      "id": "2"
+    },
+    {
+      "title": "iOS9 SDK Development",
+      "id": "3?params=some&token=dont-include-a-token"
+    }
+  ]
+}

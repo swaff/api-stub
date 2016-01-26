@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+  <body>
+    <h1>Books</h1>
+    <section id="books"></section>
+    <section id="book-detail"></section>
+
+    <form id="post-form">
+      <h2>Post</h2>
+      <div>
+        <label>Response Code</label>
+        <input id="posts" />
+      </div>
+      <div>
+        <label>Response File</label>
+        <input id="post-file" />
+      </div>
+      <div>
+        <button type="submit">post</button>
+      </div>
+    </form>
+
+    <form id="tracks-form">
+      <h2>Tracks Request builder</h2>
+      <div>
+        <label>Response File</label>
+        <select id="request-file">
+          <option value=index>index.json (default file)</option>
+          <option value=rage>rage.json</option>
+          <option value=smashing>smashing.json</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit">Add Track</button>
+      </div>
+    </form>
+    <ol id="queued-tracks"></ol>
+    <div>
+        <button id="make-request">Get tracks</button>
+        <button id="clear-tracks">Clear</button>
+    </div>
+    <ul id="track-responses"></ul>
+
+    <script src="scripts/handlebars-v4.0.5.js"></script>
+    <script src="scripts/intercept.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+      INTERCEPT.init();
+      APP.init();
+    </script>
+
+    <script id="book-detail-template" type="text/x-handlebars-template">
+      <div class="book">
+        <div>{{title}}</div>
+        <div>{{author}}</div>
+        <div>
+          <img src="{{packshot}}" alt=""/>
+        </div>
+      </div>
+    </script>
+
+    <script id="tracks-template" type="text/x-handlebars-template">
+      {{#each tracks}}
+        <li>{{.}}</li>
+      {{/each}}
+    </script>
+
+    <script id="track-response-template" type="text/x-handlebars-template">
+      <li class="track">
+        <div>Requested: {{askedFor}}</div>
+        <div class="track-artist">{{artist}}</div>
+        <div class="track-name">{{track}} | {{album}}</div>
+      </li>
+    </script>
+  </body>
+</html>
